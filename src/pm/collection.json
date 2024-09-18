@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "996c8c23-b398-4cdd-ac3a-8455755edf4a",
+		"name": "demo-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15720550",
+		"_collection_link": "https://restless-eclipse-501618.postman.co/workspace/TCC-OBK~c01e234b-ef1a-4f4d-b354-62eebaed0fa4/collection/15720550-996c8c23-b398-4cdd-ac3a-8455755edf4a?action=share&source=collection_link&creator=15720550"
+	},
+	"item": [
+		{
+			"name": "GET json",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate the compilerOptions object and its properties\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData).to.be.an('object');",
+							"  pm.expect(responseData.compilerOptions).to.exist.and.to.be.an('object');",
+							"  pm.expect(responseData.compilerOptions.target).to.exist.and.to.be.a('string');",
+							"  pm.expect(responseData.compilerOptions.module).to.exist.and.to.be.a('string');",
+							"  pm.expect(responseData.compilerOptions.strict).to.exist.and.to.be.a('boolean');",
+							"  pm.expect(responseData.compilerOptions.esModuleInterop).to.exist.and.to.be.a('boolean');",
+							"  pm.expect(responseData.compilerOptions.outDir).to.exist.and.to.be.a('string');",
+							"  pm.expect(responseData.compilerOptions.declaration).to.exist.and.to.be.a('boolean');",
+							"});",
+							"",
+							"",
+							"pm.test(\"Include and files arrays must exist in the response\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData).to.be.an('object');",
+							"  pm.expect(responseData.include).to.be.an('array').and.to.exist;",
+							"  pm.expect(responseData.files).to.be.an('array').and.to.exist;",
+							"});",
+							"",
+							"",
+							"pm.test(\"Verify Content-Type header is text/plain\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"text/plain\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/kofkuiper/kuiper-nft-marketplace/refs/heads/main/tsconfig.json",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"kofkuiper",
+						"kuiper-nft-marketplace",
+						"refs",
+						"heads",
+						"main",
+						"tsconfig.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET readme",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/kofkuiper/kuiper-nft-marketplace/refs/heads/main/README.md",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"kofkuiper",
+						"kuiper-nft-marketplace",
+						"refs",
+						"heads",
+						"main",
+						"README.md"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "https://raw.githubusercontent.com",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "PostmanRunner",
+  "version": "1.0.0",
+  "description": "Run postman test scripts",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts"
+  },
+  "keywords": [],
+  "author": "kofkuiper",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/newman": "^5.3.6",
+    "@types/node": "^20.11.5",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "newman": "^6.2.1",
+    "newman-reporter-htmlextra": "^1.23.1",
+    "reporter": "^0.1.0"
+  }
+}
